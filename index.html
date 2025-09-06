@@ -13,46 +13,61 @@
         <img src="img/cw_logo-2.png" alt="Charity Water Logo" class="logo">
         <!-- Simple navigation tabs -->
         <div class="nav-tabs">
-            <a href="#">Home</a>
-            <a href="#">Our Story</a>
-            <a href="#">Impact</a>
-            <a href="#">Donate</a>
+            <a href="index.html">Home</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="blog.html">Blog</a>
+            <a href="donate.html">Donate</a>
         </div>
     </div>
 
     <!-- Call-to-Action Section: This encourages visitors to take action -->
     <section class="call-to-action">
-        <!-- This container helps move the content to the left half -->
-        <div class="cta-left">
-            <h2 class="cta-header">Be the Change<br><span class="cta-subheader">See the Impact</span></h2>
-            <p>
-                Join a global movement bringing clean water to communities in need<br>
-                and track exactly how your action creates real, measurable change.
-            </p>
-            <!-- Put the text box and button side by side using a simple container -->
-            <div class="cta-row">
-                <!-- Text box for user input, placed to the left of the Donate button -->
-                <input type="text" class="cta-textbox" placeholder="Your name or message">
-                <a href="#" class="donate-button">Donate </a>
+        <div class="cta-flex-row">
+            <div class="cta-left">
+                <h2 class="cta-header">
+                    Be the Change.<br>
+                    <span class="cta-subheader">See the Impact.</span>
+                </h2>
+                <p class="cta-desc">
+                    Join a global movement bringing clean water to communities in need<br>
+                    and track exactly how your action creates real, measurable change.
+                </p>
+                <div class="cta-row">
+                    <!-- Use a container to hold the input and currency dropdown together -->
+                    <div class="amount-box">
+                        <input type="number" class="cta-textbox" placeholder="Insert Amount">
+                        <!-- Currency dropdown placed inside the amount box -->
+                        <select class="cta-currency">
+                            <option value="USD">$</option>
+                            <option value="EUR">€</option>
+                            <option value="GBP">£</option>
+                            <option value="JPY">¥</option>
+                        </select>
+                    </div>
+                    <a href="#" class="donate-button">Donate</a>
+                </div>
+            </div>
+            <div class="cta-image-box">
+                <img src="img/pexels-khaled-5281178.jpg" alt="Child enjoying clean water" class="cta-image">
             </div>
         </div>
     </section>
 
+    <!-- Light blue divider line between sections -->
+    <hr class="section-divider">
+
     <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
+    <section class="story" id="our-story">
         <h2 style="text-align: center;">Our Story</h2>
         <p>
-            Charity: Water is a nonprofit organization bringing clean and safe drinking water to people in developing countries. We believe that everyone deserves access to clean water, and we work tirelessly to make that a reality.
+           Charity: Water is a nonprofit organization dedicated to bringing clean and safe drinking water to communities in developing countries. We believe that access to clean water is a basic human right, and we're committed to ending the water crisis through innovative, transparent, and community-led solutions. If you're a college student passionate about global justice and making a real impact, joining our mission means turning your energy and voice into life-changing action for people who need it most.
         </p>
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <h2>Meet Amina</h2>
-        <div class="impact-content">
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+        <!-- Learn More button with downward arrow below the story section -->
+        <div style="text-align: center; margin-top: 32px;">
+            <!-- Simple button for beginners -->
+            <a href="our-story.html" class="learn-more-btn">
+                Learn More &#8595;
+            </a>
         </div>
     </section>
 </body>

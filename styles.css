@@ -24,20 +24,30 @@ Fonts:
 */
 
 /* Set up the main font and background color for the whole page */
-body {
-  background-color: #FFC907; /* Yellow for the background */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+/* Make the entire background blue for the whole page */
+/* This sets the body background to primary blue and removes any gaps */
+html, body {
   margin: 0;
   padding: 0;
+  background-color: #2E9DF7;
+  font-family: 'Avenir', 'Proxima Nova';
+  min-height: 100vh;
   color: #222;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 /* Top navigation bar styles */
-/* Keep the top bar blue with yellow border */
+/* Keep the top bar blue with light blue top border */
 .top-bar {
   width: 100%;
-  background-color: #2E9DF7; /* Primary blue for the top bar */
-  border-top: 4px solid #FFC907; /* Yellow top border */
+  background-color: #2E9DF7;      /* Primary blue background */
+  border-top: 4px solid #8BD1CB;  /* Light blue top border */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,33 +55,43 @@ body {
   box-sizing: border-box;
 }
 
-/* Make all sections have no background so the yellow shows through */
-section,
-.story,
-.call-to-action {
-  background-color: transparent; /* No background, shows yellow from body */
+/* Navigation tabs styles */
+/* Make each tab have a primary blue box and yellow text */
+.nav-tabs a {
+  color: #FFC907;
+  background-color: #2E9DF7;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-left: 8px;
+  border: 2px solid #2E9DF7;
+  box-shadow: 0 2px 6px rgba(46, 157, 247, 0.10);
+  transition: background 0.2s, color 0.2s;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
+.nav-tabs a:hover {
+  background-color: #2E9DF7;
+  color: #fff;
+  border-color: #2E9DF7;
+}
+
+/* Remove the white boxes behind the sections */
 section {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07);
-  margin: 24px 10px;
+  margin: 24px 10px 0 10px;
   padding: 24px 16px;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 /* Hero Section Styles */
 .hero {
-  /* Remove the background image for a simple blue section */
-  background-image: none;         /* No image */
-  background-size: initial;
-  background-position: initial;
-  background-repeat: initial;
-  background-blend-mode: normal;
-  background-color: #2E9DF7;      /* Keep primary blue background */
-  text-align: center;             /* Center the text */
-  padding: 60px 20px;             /* Add space above and below */
-  border-radius: 0 0 16px 16px;   /* Only round bottom corners */
+  background-color: #2E9DF7;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 0 0 16px 16px;
 }
 
 /* Make the headline bold and modern */
@@ -80,7 +100,7 @@ section {
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* Style the subheadline */
@@ -99,115 +119,156 @@ section {
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #2E9DF7;
   margin-top: 0;
   font-weight: bold;
 }
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  /* Add more space above and below the section */
-  padding: 80px 20px;      /* More space above and below */
-  text-align: center;      /* Center the text */
-  background-color: transparent; /* No background, shows yellow from body */
+  background-color: #2E9DF7;
+  border-radius: 12px;
+  padding: 160px 32px;
+  margin: 40px auto 0 auto;
+  max-width: 1400px;
+  box-shadow: 0 4px 24px rgba(46, 157, 247, 0.12);
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* Make the call-to-action header even larger */
 .cta-header {
-  font-size: 2.8em; /* Bigger header text */
+  font-size: 3.6em;
   font-weight: bold;
+  color: #FFC907;
   margin-bottom: 0.2em;
-  color: #222;
-  text-align: center;
+  text-align: left;
 }
 
-/* Style the subheader for "See the Impact" */
+/* Style the subheader for "See the Impact." */
 .cta-subheader {
-  font-size: 1em; /* Slightly larger subheader */
+  font-size: 1em;
   font-weight: normal;
-  color: #2E9DF7;   /* Primary blue for accent */
+  color: #FFC907;
   display: block;
   margin-top: 0.2em;
 }
 
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
-
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
+/* Style the paragraph below the header in the call-to-action section */
+/* This makes the paragraph color white */
+.cta-desc {
+  font-size: 1.5em;
   color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
+  margin-bottom: 24px;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+/* Increase the spacing in between lines for paragraph text */
+/* This uses line-height for easier reading */
+.cta-desc,
+.story p,
+.impact-content p {
+  line-height: 1.8; /* More space between lines */
+}
+
+/* Row for input and button */
+.cta-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 12px;
+}
+
+/* Style for the input box */
+.cta-textbox {
+  font-size: 1.3em;
+  padding: 16px 90px 16px 16px; /* Extra right padding for dropdown */
+  border: 2px solid #FFC907;
   border-radius: 6px;
-  font-weight: bold;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #222;
+}
+
+/* Position the currency dropdown inside the text box, on the right */
+.cta-currency {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
   font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  padding: 8px 10px;
+  border: 2px solid #FFC907;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #222;
+  height: auto;
+  box-sizing: border-box;
+  margin: 0;
+  width: 70px;
+}
+
+/* Style for the donate button */
+.donate-button {
+  font-size: 1.5em;
+  padding: 18px 40px;
+  background-color: #FF902A;
+  color: #fff;
   border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 8px;
   cursor: pointer;
+  line-height: 1.2;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
 }
 
-/* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  transform: translateY(-2px) scale(1.04);
 }
-
 /* Increase font size for the paragraph in the call-to-action section */
 .call-to-action p {
-  font-size: 1.4em; /* Larger paragraph text for emphasis */
+  font-size: 1.4em;
   margin: 24px 0;
 }
 
-/* Add some spacing between sections */
+/* Remove the white gaps between sections by setting margin-bottom to 0 */
 section {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Logo styles */
 .logo {
-  height: 40px; /* Makes the logo a good size for the top bar */
-  margin-right: 24px; /* Space between logo and tabs */
-  /* Logo stays on the left by default in flexbox */
+  height: 40px;
+  margin-right: 24px;
 }
 
 /* Navigation tabs styles */
-.nav-tabs {
-  display: flex;
-  gap: 32px; /* Evenly space tabs apart */
-  justify-content: flex-end; /* Align tabs to the right */
-}
-
-/* Each tab link */
-/* Tabs are now secondary light blue, hover is still primary blue */
+/* Make each tab have a primary blue box and yellow text */
 .nav-tabs a {
-  color: #222; /* Dark text for light blue background */
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  color: #FFC907;
+  background-color: #2E9DF7;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2em; /* Increased font size for tabs */
-  padding: 8px 16px;           /* More padding for box look */
+  font-size: 1.2em;
+  padding: 8px 16px;
   border-radius: 6px;
+  margin-left: 8px;
+  border: 2px solid #2E9DF7;
+  box-shadow: 0 2px 6px rgba(46, 157, 247, 0.10);
   transition: background 0.2s, color 0.2s;
-  box-shadow: 0 2px 6px rgba(139, 209, 203, 0.10); /* Soft light blue shadow */
-  border: 2px solid #8BD1CB;   /* Light blue border for box effect */
-  margin: 0;                   /* Remove default margin */
 }
 
-/* Tab hover effect */
 .nav-tabs a:hover {
-  background-color: #2E9DF7;   /* Primary blue on hover */
+  background-color: #2E9DF7;
   color: #fff;
-  border-color: #2E9DF7;       /* Blue border on hover */
+  border-color: #2E9DF7;
 }
 
 /* 
@@ -257,10 +318,10 @@ section {
 @media (min-width: 601px) {
   /* Show image and text side by side in the impact story */
   .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
     text-align: left;
     max-width: 800px;
     margin: 0 auto;
@@ -273,38 +334,38 @@ section {
 
 /* Move the call-to-action content to the left half of the screen */
 .cta-left {
-  width: 50%;           /* Take up half the screen */
-  margin-left: 0;       /* Start at the left edge */
-  margin-right: auto;   /* Push content to the left */
-  text-align: left;     /* Align text to the left */
-  margin-top: 40px;     /* Add space above to lower the CTA section */
+  width: 50%
+  margin-left: 0
+  margin-right: auto
+  text-align: left
+  margin-top: 40px
 }
 
 /* Simple row for text box and button side by side */
 .cta-row {
-  display: flex;           /* Put items in a row */
-  align-items: center;     /* Vertically center them */
-  gap: 12px;               /* Space between text box and button */
-  margin-top: 18px;        /* Space above the row */
+  display: flex;
+  align-items: center;
+  gap: 12px
+  margin-top: 18px
 }
 
 /* Style for the text box in the call-to-action section */
-/* This makes the text box a good height for the button */
+/* This makes the text box have a white background and yellow border */
 .cta-textbox {
-  font-size: 1.1em;
-  padding: 14px 14px;        /* Top/bottom padding matches button */
-  border: 2px solid #2E9DF7;
+  font-size: 1.3em;
+  padding: 16px 90px 16px 16px; /* Extra right padding for dropdown */
+  border: 2px solid #FFC907;
   border-radius: 6px;
   width: 100%;
-  max-width: 320px;          /* Limit width for readability */
   box-sizing: border-box;
+  background-color: #fff;
+  color: #222;
 }
 
-/* Make the donate button the same height as the text box and raise it slightly */
 .donate-button {
-  font-size: 1.1em;
-  padding: 14px 32px;
-  background-color: #FF902A; /* Secondary orange */
+  font-size: 1.5em;
+  padding: 18px 40px;
+  background-color: #FF902A;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -315,12 +376,164 @@ section {
   line-height: 1.2;
   display: inline-block;
   vertical-align: middle;
-  position: relative;      /* Allows us to move the button */
-  top: -6px;               /* Raise the button slightly */
+  position: relative;
 }
-
 /* Change the donate button color when hovered */
 .donate-button:hover {
-  background-color: #F5402C; /* Red for hover */
   transform: translateY(-2px) scale(1.04);
+}
+
+/* Impact Story section: place header and paragraph side by side */
+.impact-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.impact-content p {
+    max-width: 400px;
+}
+
+.cta-row-header {
+  display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 18px;
+}
+
+.cta-row-header p {
+  max-width: 340px;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Container for call-to-action content and image side by side */
+.cta-flex-row {
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cta-left {
+  width: 45%;
+  margin: 0;
+  text-align: left;
+}
+
+.cta-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta-image-box {
+  width: 50%;                 /* Take up half the section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cta-image {
+  width: 100%;                /* Fill the container */
+  height: auto;               /* Maintain aspect ratio */
+  max-width: none;            /* Remove if it restricts image scaling */
+  max-height: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+}
+
+/* Light blue divider line between sections */
+.section-divider {
+  width: 90%;
+  height: 6px;
+  background-color: #8BD1CB;
+  border: none;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  margin-bottom: -3px;
+}
+
+/* Previous donations list */
+.donation-list {
+  margin-top: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+}
+
+.donation-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.donation-list li {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Our Story section styles */
+.story {
+  background-color: #2E9DF7;
+  border-radius: 12px;
+  padding: 160px 32px;
+  margin: -80px auto 40px auto;
+  max-width: 1400px;
+  box-shadow: 0 4px 24px rgba(46, 157, 247, 0.12);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.story h2 {
+  font-size: 3.6em;
+  color: #FFC907;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.story p {
+  font-size: 1.5em;
+  color: #FF902A;
+  margin-bottom: 24px;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+/* Make the paragraph color white for the Our Story section */
+.story p {
+  color: #fff;
+}
+
+/* Make the amount box slightly larger and position currency dropdown inside */
+.amount-box {
+  position: relative;           /* Allows positioning inside */
+  display: inline-block;        /* Keep input and dropdown together */
+  width: 360px;                 /* Slightly larger than before */
+  max-width: 100%;
+}
+
+/* Style for the Learn More button with downward arrow */
+.learn-more-btn {
+  font-size: 1.3em;              /* Bigger text for button */
+  padding: 14px 32px;            /* Space inside button */
+  background-color: #FFC907;     /* Yellow background */
+  color: #2E9DF7;                /* Primary blue text */
+  border: none;                  /* No border */
+  border-radius: 8px;            /* Rounded corners */
+  cursor: pointer;               /* Pointer on hover */
+  font-weight: bold;             /* Bold text */
+  margin-top: 12px;              /* Space above button */
+  text-decoration: none;         /* Remove underline for link */
+  display: inline-block;         /* Make link look like a button */
+  transition: background 0.2s, color 0.2s;
+}
+
+.learn-more-btn:hover {
+  background-color: #FF902A;     /* Orange on hover */
+  color: #fff;                   /* White text on hover */
 }
